@@ -1,0 +1,221 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Additional responsive improvements */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .app-subtitle {
+    font-size: 1rem;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.form-input:focus,
+.form-textarea:focus,
+.summary-content:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Smooth transitions for all interactive elements */
+.btn,
+.form-input,
+.form-textarea,
+.file-upload,
+.summary-content {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced button states */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Improved file upload area */
+.file-upload {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-upload::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.file-upload:hover::before {
+  left: 100%;
+}
+
+/* Enhanced summary section */
+.summary-section {
+  position: relative;
+}
+
+.summary-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+/* Enhanced share section */
+.share-section {
+  position: relative;
+}
+
+.share-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  border-radius: 2px;
+}
+
+/* Improved recipient tags */
+.recipient-tag {
+  position: relative;
+  overflow: hidden;
+}
+
+.recipient-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.3s;
+}
+
+.recipient-tag:hover::before {
+  left: 100%;
+}
+
+/* Enhanced loading animation */
+.loading {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Improved alert animations */
+.alert {
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced form group spacing */
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Improved button spacing */
+.btn + .btn {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .btn + .btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+/* Enhanced accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .form-input,
+  .form-textarea,
+  .file-upload,
+  .summary-content,
+  .recipient-tag {
+    transition: none;
+  }
+  
+  .loading {
+    animation: none;
+  }
+  
+  .alert {
+    animation: none;
+  }
+  
+  .file-upload::before,
+  .recipient-tag::before {
+    display: none;
+  }
+} 
